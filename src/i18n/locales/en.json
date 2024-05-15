@@ -1,0 +1,20 @@
+{
+  "languaje": "en",
+  "landing": {
+    "header": {
+      "navbar": {
+        "menu": {
+          "home": "Home",
+          "projects": "Projects",
+          "about": "About",
+          "services": "Services"
+        },
+        "buttons": {
+          "contact": "Contact"
+        }
+      },
+      "title": "Welcome to Omnitech Development",
+      "subtitle": "Where we build the future"
+    }
+  }
+}

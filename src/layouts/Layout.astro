@@ -1,0 +1,76 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="description" content="Astro description" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/x-icon" href="/img/logo.png" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Omintech Development - {title}</title>
+	</head>
+	<body class="bg-white dark:bg-zinc-900 dark:text-zinc-100 text-zinc-950">
+		<slot />
+	</body>
+</html>
+<style is:global>
+	@tailwind base;
+	@tailwind components;
+	@tailwind utilities;
+
+	:root {
+		--primary-50: #f5f7fa;
+		--primary-100: #eaeef4;
+		--primary-200: #d1dae6;
+		--primary-300: #a8bad1;
+		--primary-400: #7996b7;
+		--primary-500: #58789f;
+		--primary-600: #48658c;
+		--primary-700: #384e6c;
+		--primary-800: #31425b;
+		--primary-900: #2d3a4d;
+		--primary-950: #1e2633;
+
+		--secondary-50: #faf7ec;
+		--secondary-100: #f3ebce;
+		--secondary-200: #e8d5a0;
+		--secondary-300: #dbb969;
+		--secondary-400: #cc9835;
+		--secondary-500: #bf8933;
+		--secondary-600: #a56b29;
+		--secondary-700: #844f24;
+		--secondary-800: #6f4124;
+		--secondary-900: #5f3824;
+		--secondary-950: #371d11;
+	}
+</style>
+<script is:inline>
+  const theme = (() => {
+    if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
+      return localStorage.getItem("theme");
+    }
+    return "dark";
+  })();
+	const languaje = (() => {
+		if (typeof localStorage !== "undefined" && localStorage.getItem("languaje")) {
+			return localStorage.getItem("languaje");
+		}
+		return "en";
+	})();
+
+	document.documentElement.lang = languaje;
+  if (theme === "light") {
+    document.documentElement.classList.remove("dark");
+  } else {
+    document.documentElement.classList.add("dark");
+  }
+	window.localStorage.setItem("languaje", languaje);
+  window.localStorage.setItem("theme", theme);
+</script>

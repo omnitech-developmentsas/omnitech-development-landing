@@ -1,0 +1,13 @@
+---
+interface Props {
+	text: string;
+}
+
+const { text } = Astro.props;
+---
+
+<p
+	class="inline-block p-1 text-xs font-bold border-2 rounded-lg text-primary-950 dark:text-primary-200 dark:border-primary-900 bg-primary-200 dark:bg-primary-950 border-primary-600 h-fit"
+>
+	{text}
+</p>
