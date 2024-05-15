@@ -5,6 +5,7 @@ import Tag from "../../components/Tag.astro";
 import Team from "../../components/Team.astro";
 import { getI18N } from "../../i18n/index";
 import { Image } from "astro:assets";
+import TagBanner from "../../components/TagBanner.astro";
 const lang = "en";
 const i18n = getI18N({ currentLocale: lang });
 ---
@@ -34,17 +35,40 @@ const i18n = getI18N({ currentLocale: lang });
 			</div>
 			<div class="flex justify-between p-4 rounded-lg bg-primary-200 dark:bg-primary-950">
 				<section class="flex flex-row flex-wrap items-start content-start justify-start w-2/5 gap-2">
-					<Tag text="Web Development" />
-					<Tag text="Mobile Development" />
-					<Tag text="UI/UX Design" />
-					<Tag text="E-commerce" />
-					<Tag text="Iot" />
-					<Tag text="Robotic" />
+					<Tag label="Web Development" />
+					<Tag label="Mobile Development" />
+					<Tag label="UI/UX Design" />
+					<Tag label="E-commerce" />
+					<Tag label="Iot" />
+					<Tag label="Robotic" />
 				</section>
 				<section class="flex justify-end w-2/5">
 					<Team />
 				</section>
 			</div>
+		</div>
+		<div class="p-4 mt-4 rounded-lg bg-primary-200 dark:bg-primary-950">
+			<h2>Con la confianza de tus empresas y tecnologias favoritas.</h2>
+			<section class="pt-4 flex w-full">
+				<div class="flex gap-8 flex-wrap">
+					<TagBanner src="https://upload.wikimedia.org/wikipedia/commons/c/c0/Twilio_logo.png" alt="twilio" />
+					<TagBanner src="https://upload.wikimedia.org/wikipedia/commons/b/b6/SendGrid_2016_Logo.png" alt="sendgrid" />
+					<TagBanner src="https://www.edigitalagency.com.au/wp-content/uploads/mailchimp-logo-black-png-transparent.png" alt="mailchimp" />
+					<TagBanner src="https://upload.wikimedia.org/wikipedia/commons/9/93/Amazon_Web_Services_Logo.svg" alt="aws" />
+					<TagBanner src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" alt="react" />
+					<TagBanner src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg" alt="node" />
+					<TagBanner src="https://upload.wikimedia.org/wikipedia/commons/9/93/MongoDB_Logo.svg" alt="mongodb" />
+					<TagBanner src="https://upload.wikimedia.org/wikipedia/commons/0/05/Go_Logo_Blue.svg" alt="golang" />
+					<TagBanner src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Firebase_Logo.png" alt="firebase" />
+					<TagBanner src="https://upload.wikimedia.org/wikipedia/commons/a/a8/Microsoft_Azure_Logo.svg" alt="azure" />
+					<TagBanner src="https://upload.wikimedia.org/wikipedia/commons/1/17/Google-flutter-logo.png" alt="flutter" />
+					<TagBanner src="https://luminfire.com/wp-content/uploads/2017/12/React_Native_Logo.png" alt="react-native" />
+					<TagBanner src="https://cdn.freelogovectors.net/wp-content/uploads/2020/12/stencil-logo.png" alt="stenciljs" />
+					<TagBanner src="https://upload.wikimedia.org/wikipedia/commons/4/4c/Typescript_logo_2020.svg" alt="typescript" />
+					<TagBanner src="https://upload.wikimedia.org/wikipedia/commons/2/29/Postgresql_elephant.svg" alt="postgres" />
+					<TagBanner src="/img/logo-wordmark.svg" alt="expo" />
+				</div>
+			</section>
 		</div>
 	</main>
 	<footer></footer>

@@ -12,7 +12,7 @@ const currentPath = pathName.split("/")[2];
 const i18n = getI18N({ currentLocale: languaje });
 ---
 
-<div style="position: absolute; top: 25px; right: 25px;" class="">
+<div style="position: absolute; top: 25px; right: 25px;" class="hidden">
 	<Theme client:only="svelte" />
 </div>
 <nav class="flex items-center w-full p-6 justify-evenly">
@@ -48,6 +48,5 @@ const i18n = getI18N({ currentLocale: languaje });
 		>
 			{i18n.landing.header.navbar.buttons.contact}
 		</a>
-		
 	</div>
 </nav>
