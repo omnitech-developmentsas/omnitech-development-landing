@@ -13,14 +13,15 @@ import TagBanner from "@/components/TagBanner.astro";
 const { banners, width, height, animationSpeed } = Astro.props;
 ---
 
-<section
-	class=`bg-red pt-4 flex w-full h-[${height * 3}px] items-center justify-center`
+<div
+	class="pt-4 flex w-full items-center justify-center"
+	style=`height: ${height*2}px;`
 >
-	<div class=`h-[${height}px] overflow-hidden relative w-full`>
+	<div class="overflow-hidden relative w-full" style=`height: ${height}px;`>
 		<p id="width" class="hidden">{width}</p>
 		<p id="banners" class="hidden">{banners.length}</p>
 		<div
-			class="flex"
+			class="flex gap-1"
 			style=`
 				width: calc(${width}px * ${banners.length * 2});
 				animation: scroll ${animationSpeed}s linear infinite;
@@ -50,7 +51,7 @@ const { banners, width, height, animationSpeed } = Astro.props;
 			}
 		</div>
 	</div>
-</section>
+</div>
 <script type="module">
 	window.onload = () => {
 		let width = document.getElementById("width").innerText;

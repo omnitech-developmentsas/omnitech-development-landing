@@ -10,6 +10,6 @@ interface Props {
 const {src, alt, href, width = 250, height = 100} = Astro.props;
 ---
 
-<a href={href} target="_blank" rel="noopener noreferrer"  class="p-2" style=`width: ${width}px; height: ${height}px;`>
+<a href={href} target="_blank" rel="noopener noreferrer"  class="p-2 bg-primary-200 rounded" style=`width: ${width}px; height: ${height}px;`>
 	<Image src={src} alt={alt} width={width} height={height} class=`object-contain h-full w-full` />
 </a>
