@@ -1,51 +1,8 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import NavBar from "../../components/NavBar.astro";
-import Tag from "../../components/Tag.astro";
-import Team from "../../components/Team.astro";
-import { getI18N } from "../../i18n/index";
-import { Image } from "astro:assets";
-const lang = "en";
-const i18n = getI18N({ currentLocale: lang });
+import Layout from "@/layouts/Layout.astro";
+import IndexPage from "@/pages/Index.astro";
 ---
 
 <Layout title="Home">
-	<header>
-		<NavBar languaje={lang} />
-		<h1 class="text-4xl font-bold text-center dark:text-zinc-100">
-			{i18n.landing.header.title}
-		</h1>
-		<p class="text-2xl text-center dark:text-zinc-100">
-			{i18n.landing.header.subtitle}
-		</p>
-		<div class="px-6 py-2">
-			<Image class="object-cover w-full rounded-2xl aspect-video h-96" src="/img/image.png" alt="development-agency" width="1920" height="1080" />
-		</div>
-	</header>
-	<main class="px-6">
-		<div class="grid grid-cols-[1fr_3fr] gap-6">
-			<div class="p-4 rounded-lg bg-primary-200 dark:bg-primary-950 flex flex-col justify-between items-start">
-				<p class="dark:text-primary-50">
-					"Transformando lo ordinario en extraordinario."
-				</p>
-				<button class="text-secondary-500 border-secondary-500 border-2 rounded-md text-xs px-2 py-1">
-					Contactanos
-				</button>
-			</div>
-			<div class="flex justify-between p-4 rounded-lg bg-primary-200 dark:bg-primary-950">
-				<section class="flex flex-row flex-wrap items-start content-start justify-start w-2/5 gap-2">
-					<Tag text="Web Development" />
-					<Tag text="Mobile Development" />
-					<Tag text="UI/UX Design" />
-					<Tag text="E-commerce" />
-					<Tag text="Iot" />
-					<Tag text="Robotic" />
-				</section>
-				<section class="flex justify-end w-2/5">
-					<Team />
-				</section>
-			</div>
-		</div>
-	</main>
-	<footer></footer>
+	<IndexPage languaje="en" />
 </Layout>

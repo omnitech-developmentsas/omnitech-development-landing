@@ -1,0 +1,53 @@
+---
+interface Props {
+	banners: {
+		href: string;
+		src: string;
+		alt: string;
+	}[];
+	width: number;
+	height: number;
+	animationSpeed: number;
+}
+import TagBanner from "@/components/TagBanner.astro";
+const { banners, width, height, animationSpeed } = Astro.props;
+---
+
+<style>
+	@keyframes scroll {
+		0% {
+			transform: translateX(0);
+		}
+		50% {
+			transform: translateX(-100%);
+		}
+		100% {
+			transform: translateX(0);
+		}
+	}
+</style>
+<section
+	class=`bg-red pt-4 flex w-full h-[${height * 3}px] items-center justify-center`
+>
+	<div class=`h-[${height}px] overflow-hidden relative w-full`>
+		<div
+			class="flex gap-10"
+			style=`
+				width: calc(${width}px * ${banners.length});
+				animation: scroll ${animationSpeed}s linear infinite;
+			`
+		>
+			{
+				banners.map((banner) => (
+					<TagBanner
+						href={banner.href}
+						src={banner.src}
+						alt={banner.alt}
+						width={width}
+						height={height}
+					/>
+				))
+			}
+		</div>
+	</div>
+</section>
