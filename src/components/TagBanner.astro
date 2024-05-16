@@ -9,8 +9,7 @@ interface Props {
 }
 const {src, alt, href, width = 250, height = 100} = Astro.props;
 ---
-<!-- rounded-md overflow-hidden p-2 w-[${width}px] h-[${height}px] -->
-<p>{width} x {height}</p>
-<a href={href} target="_blank" rel="noopener noreferrer"  class=`p-2 w-[${width}px] h-[${height}px]`>
-	<Image src={src} alt={alt} width={width} height={height} class=`object-contain h-full w-full border-2` />
+
+<a href={href} target="_blank" rel="noopener noreferrer"  class="p-2" style=`width: ${width}px; height: ${height}px;`>
+	<Image src={src} alt={alt} width={width} height={height} class=`object-contain h-full w-full` />
 </a>
