@@ -1,0 +1,74 @@
+---
+interface Props {
+		languaje: string;
+}
+import NavBar from "@/components/NavBar.astro";
+import Tag from "@/components/Tag.astro";
+import Team from "@/components/Team.astro";
+import { getI18N } from "@/i18n/index";
+import { Image } from "astro:assets";
+import Carousel from "@/components/Carousel.astro";
+import { banners } from "@/const/banners";
+const { languaje } = Astro.props;
+const i18n = getI18N({ currentLocale: languaje });
+---
+
+<header>
+	<NavBar languaje={languaje} />
+	<h1 class="text-4xl font-bold text-center dark:text-zinc-100">
+		{i18n.landing.header.title}
+	</h1>
+	<p class="text-2xl text-center dark:text-zinc-100">
+		{i18n.landing.header.subtitle}
+	</p>
+	<div class="px-6 py-2">
+		<Image
+			class="object-cover w-full rounded-2xl aspect-video h-96"
+			src="/img/image.png"
+			alt="development-agency"
+			width="1920"
+			height="1080"
+		/>
+	</div>
+</header>
+<main class="px-6">
+	<div class="grid grid-cols-[1fr_3fr] gap-6">
+		<div
+			class="p-4 rounded-lg bg-primary-200 dark:bg-primary-950 flex flex-col justify-between items-start"
+		>
+			<p class="dark:text-primary-50">
+				"Transforming the ordinary into extraordinary."
+			</p>
+			<button
+				class="text-secondary-500 border-secondary-500 border-2 rounded-md text-xs px-2 py-1"
+			>
+				Contactanos
+			</button>
+		</div>
+		<div
+			class="flex justify-between p-4 rounded-lg bg-primary-200 dark:bg-primary-950"
+		>
+			<section
+				class="flex flex-row flex-wrap items-start content-start justify-start w-2/5 gap-2"
+			>
+				<Tag label="Web Development" />
+				<Tag label="Mobile Development" />
+				<Tag label="UI/UX Design" />
+				<Tag label="E-commerce" />
+				<Tag label="Iot" />
+				<Tag label="Robotic" />
+			</section>
+			<section class="flex justify-end w-2/5">
+				<Team />
+			</section>
+		</div>
+	</div>
+	<div class="p-4 mt-4 rounded-lg bg-primary-200 dark:bg-primary-950 text-center">
+		<h2 class="text-3xl py-2 capitalize">Trusted by your favorite companies and technologies.</h2>
+		<Carousel banners={banners} width={250} height={100} animationSpeed={500}  />
+	</div>
+</main>
+<footer class="py-24 text-center">
+	<hr class="border-t-2 border-primary-500 w-1/2 mx-auto my-4" />
+	<p>Made with ❤️ by the Omnitech Development team.</p>
+</footer>

@@ -2,9 +2,9 @@
 interface Props {
 	languaje: string;
 }
-import Theme from "../components/Theme.svelte";
+import Theme from "@/components/Theme.svelte";
 import { getRelativeLocaleUrl } from "astro:i18n";
-import { getI18N } from "../i18n/index";
+import { getI18N } from "@/i18n/index";
 import { Image } from "astro:assets";
 const { languaje } = Astro.props;
 const pathName = Astro.url.pathname;
@@ -12,7 +12,7 @@ const currentPath = pathName.split("/")[2];
 const i18n = getI18N({ currentLocale: languaje });
 ---
 
-<div style="position: absolute; top: 25px; right: 25px;" class="hidden">
+<div style="position: absolute; top: 25px; right: 25px;">
 	<Theme client:only="svelte" />
 </div>
 <nav class="flex items-center w-full p-6 justify-evenly">
