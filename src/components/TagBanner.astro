@@ -8,9 +8,9 @@ interface Props {
 	height?: number;
 }
 const {src, alt, href, width = 250, height = 100} = Astro.props;
+console.log(width, height);
 ---
 
 <a href={href} target="_blank" rel="noopener noreferrer"  class=`w-[${width}px] h-[${height}px] rounded-md overflow-hidden p-2`>
 	<Image src={src} alt={alt} width={width} height={height} class=`object-contain h-full w-full` />
 </a>
-
