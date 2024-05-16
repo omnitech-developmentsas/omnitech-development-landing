@@ -13,27 +13,16 @@ import TagBanner from "@/components/TagBanner.astro";
 const { banners, width, height, animationSpeed } = Astro.props;
 ---
 
-<style>
-	@keyframes scroll {
-		0% {
-			transform: translateX(0);
-		}
-		50% {
-			transform: translateX(-100%);
-		}
-		100% {
-			transform: translateX(0);
-		}
-	}
-</style>
 <section
 	class=`bg-red pt-4 flex w-full h-[${height * 3}px] items-center justify-center`
 >
 	<div class=`h-[${height}px] overflow-hidden relative w-full`>
+		<p id="width" class="hidden">{width}</p>
+		<p id="banners" class="hidden">{banners.length}</p>
 		<div
-			class="flex gap-10"
+			class="flex"
 			style=`
-				width: calc(${width}px * ${banners.length});
+				width: calc(${width}px * ${banners.length * 2});
 				animation: scroll ${animationSpeed}s linear infinite;
 			`
 		>
@@ -48,6 +37,36 @@ const { banners, width, height, animationSpeed } = Astro.props;
 					/>
 				))
 			}
+			{
+				banners.map((banner) => (
+					<TagBanner
+						href={banner.href}
+						src={banner.src}
+						alt={banner.alt}
+						width={width}
+						height={height}
+					/>
+				))
+			}
 		</div>
 	</div>
 </section>
+<script type="module">
+	window.onload = () => {
+		let width = document.getElementById("width").innerText;
+		let bannersLength = document.getElementById("banners").innerText;
+		let styleSheet = document.createElement("style");
+		let keyframes = `
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-${width}px * ${bannersLength}));
+      }
+    }`;
+
+		styleSheet.innerText = keyframes;
+		document.head.appendChild(styleSheet);
+	};
+</script>
