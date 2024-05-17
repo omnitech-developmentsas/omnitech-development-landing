@@ -1,13 +1,14 @@
 ---
 interface Props {
 	title: string;
+	language: string;
 }
-
-const { title } = Astro.props;
+import NavBar from "@/components/NavBar.astro";
+const { title, language } = Astro.props;
 ---
 
 <!doctype html>
-<html>
+<html lang={language}>
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -17,7 +18,14 @@ const { title } = Astro.props;
 		<title>Omintech Development - {title}</title>
 	</head>
 	<body class="bg-white dark:bg-zinc-900 dark:text-zinc-100 text-zinc-950">
+		<header>
+			<NavBar language={language} />
+		</header>
 		<slot />
+		<footer class="py-24 text-center">
+			<hr class="border-t-2 border-primary-500 w-1/2 mx-auto my-4" />
+			<p>Made with ❤️ by the Omnitech Development team.</p>
+		</footer>
 	</body>
 </html>
 <style is:global>
@@ -58,22 +66,15 @@ const { title } = Astro.props;
 		}
 		return "dark";
 	})();
-	const languaje = (() => {
-		if (
-			typeof localStorage !== "undefined" &&
-			localStorage.getItem("languaje")
-		) {
-			return localStorage.getItem("languaje");
-		}
-		return "en";
-	})();
+	// obtener language del html
+	const language = document.documentElement.lang;
 
-	document.documentElement.lang = languaje;
+	// document.documentElement.lang = 'es';
 	if (theme === "light") {
 		document.documentElement.classList.remove("dark");
 	} else {
 		document.documentElement.classList.add("dark");
 	}
-	window.localStorage.setItem("languaje", languaje);
+	// window.localStorage.setItem("language", language);
 	window.localStorage.setItem("theme", theme);
 </script>

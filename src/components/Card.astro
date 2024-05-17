@@ -2,18 +2,18 @@
 import { Image } from 'astro:assets';
 interface Props {
 	title: string;
-	body: string;
 	href: string;
 	srcImage?: string;
 }
 
-const { href, title, body, srcImage } = Astro.props;
+const { href, title, srcImage } = Astro.props;
+const target = href.startsWith('http') ? '_blank' : '_self';
 ---
 
-<div class="flex-wrap w-20 h-24 rounded-md bg-primary-900">
-	<a href={href}>
+<div class="flex-wrap w-auto h-auto rounded-md dark:bg-primary-900 bg-primary-100">
+	<a href={href} title={title} target={target}>
 		{srcImage ?
-		<Image src={srcImage} alt={title} width="100" height="100" loading="lazy" style="object-fit: cover; width: 100%; height: 100%;" class="rounded-md" /> :
+		<Image src={srcImage} alt={title} width="100" height="100" loading="lazy" class="rounded-md w-full h-full object-cover" /> :
 		<div class="flex items-center justify-center w-full h-full">
 			<slot />
 		</div>

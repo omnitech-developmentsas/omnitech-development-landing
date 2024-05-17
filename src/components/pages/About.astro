@@ -1,0 +1,28 @@
+---
+interface Props {
+	language: string;
+}
+const { language } = Astro.props;
+---
+
+<!-- pagina de About de la empresa Omnitech Development con tailwind-->
+<main>
+	<div class="container mx-auto">
+		<div class="flex flex-col items-center justify-center">
+			<h1 class="text-4xl font-bold text-center text-gray-800">About Us</h1>
+			<p class="text-center text-gray-600">We are a company that specializes in software development</p>
+		</div>
+		<div class="flex flex-col items-center justify-center mt-10">
+			<h2 class="text-2xl font-bold text-center text-gray-800">Our Mission</h2>
+			<p class="text-center text-gray-600">Our mission is to provide the best software development services to our clients</p>
+		</div>
+		<div class="flex flex-col items-center justify-center mt-10">
+			<h2 class="text-2xl font-bold text-center text-gray-800">Our Vision</h2>
+			<p class="text-center text-gray-600">Our vision is to become the best software development company in the world</p>
+		</div>
+		<div class="flex flex-col items-center justify-center mt-10">
+			<h2 class="text-2xl font-bold text-center text-gray-800">Our Values</h2>
+			<p class="text-center text-gray-600">Our values are quality, innovation, and customer satisfaction</p>
+		</div>
+	</div>
+</main>

@@ -1,0 +1,37 @@
+---
+import AchivementCard from '@/components/AchivementCard.astro'
+---
+
+<section
+	class="p-4 mt-4 rounded-lg bg-primary-200 dark:bg-primary-950 text-center"
+>
+	<h2 class="text-3xl py-2 capitalize">Achievements</h2>
+	<div class="flex justify-evenly">
+		<AchivementCard
+			title="+1200"
+			description="Lines of quality code written"
+			href='https://www.github.com/omnitech-developmentsas'
+			titleHref='Github'
+		/>
+		<AchivementCard
+			title="2"
+			description="Open source projects, for our community"
+			href='https://www.github.com/omnitech-developmentsas'
+			titleHref='Open Source Projects'
+		/>
+
+		<AchivementCard
+			title="+3"
+			description="Years of experience in the industry"
+			href='https://www.linkedin.com/company/omnitech-development/about'
+			titleHref='Linkedin'
+		/>
+
+		<!-- <AchivementCard
+			title="90%"
+			description="of our clients come back to us for more projects"
+			href='https://www.linkedin.com/company/omnitech-developmentsas'
+			titleHref='Clients'
+		/> -->
+	</div>
+</section>
