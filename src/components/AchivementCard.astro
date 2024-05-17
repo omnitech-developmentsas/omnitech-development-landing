@@ -1,0 +1,22 @@
+---
+interface Props {
+	title: string;
+	href: string;
+	titleHref: string;
+	description: string;
+}
+import Card from "@/components/Card.astro";
+const { title, href, description, titleHref } = Astro.props;
+---
+<div class="flex justify-center items-center">
+	<Card
+		title={titleHref}
+		href={href}
+	>
+	<div class="p-4 h-56 w-56 flex flex-col justify-center">
+		<p class="text-2xl font-bold text-center text-primary-400">{title}</p>
+		<br>
+		<p>{description}</p>
+	</div>
+	</Card>
+</div>

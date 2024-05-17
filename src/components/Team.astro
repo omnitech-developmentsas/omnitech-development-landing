@@ -3,7 +3,7 @@ interface Props {
 	language: string;
 }
 import Card from "@/components/Card.astro";
-import Person from "@/icons/person.astro";
+import Linkedin from "@/icons/linkedin.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 const { language } = Astro.props;
 ---
@@ -15,7 +15,7 @@ const { language } = Astro.props;
 	</div>
 	<div class="flex flex-col-reverse w-3/6 gap-4">
 		<Card title="titulo" href="https://www.linkedin.com/company/omnitech-development">
-			<Person />
+			<Linkedin />
 		</Card>
 		<p class="text-2xl font-bold text-center text-primary-400">5+</p>
 	</div>

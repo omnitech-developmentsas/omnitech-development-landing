@@ -1,6 +1,6 @@
 ---
 interface Props {
-		language: string;
+	language: string;
 }
 
 import TeamSection from "@/components/sections/TeamSection.astro";
@@ -31,7 +31,7 @@ const i18n = getI18N({ currentLocale: language });
 		/>
 	</div>
 	<TeamSection language={language} />
-	<ProviderSection />
 	<RecentWorks />
 	<Achievements />
+	<ProviderSection />
 </main>
