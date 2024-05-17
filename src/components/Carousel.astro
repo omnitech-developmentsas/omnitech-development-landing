@@ -8,26 +8,30 @@ interface Props {
 	width: number;
 	height: number;
 	animationSpeed: number;
+	id: string;
+	repeat: number;
 }
 import TagBanner from "@/components/TagBanner.astro";
-const { banners, width, height, animationSpeed } = Astro.props;
+const { banners, width, height, animationSpeed, id, repeat } = Astro.props;
+import {generateCarouselCSS} from '@/utils/carousel.css';
+const carouselCSS = generateCarouselCSS(width, banners.length, id);
 ---
 
+<style set:html={carouselCSS} />
 <div
 	class="pt-4 flex w-full items-center justify-center"
-	style=`height: ${height*2}px;`
+	style=`height: ${height}px;`
 >
 	<div class="overflow-hidden relative w-full" style=`height: ${height}px;`>
-		<p id="width" class="hidden">{width}</p>
-		<p id="banners" class="hidden">{banners.length}</p>
 		<div
 			class="flex gap-1"
 			style=`
-				width: calc(${width}px * ${banners.length * 2});
-				animation: scroll ${animationSpeed}s linear infinite;
+				width: calc(${width}px * ${banners.length * repeat});
+				animation: scroll-${id} ${animationSpeed}s linear infinite;
 			`
 		>
-			{
+		{
+			Array.from({ length: repeat }).map(() => (
 				banners.map((banner) => (
 					<TagBanner
 						href={banner.href}
@@ -37,37 +41,8 @@ const { banners, width, height, animationSpeed } = Astro.props;
 						height={height}
 					/>
 				))
-			}
-			{
-				banners.map((banner) => (
-					<TagBanner
-						href={banner.href}
-						src={banner.src}
-						alt={banner.alt}
-						width={width}
-						height={height}
-					/>
-				))
-			}
+			))
+		}
 		</div>
 	</div>
 </div>
-<script type="module">
-	window.onload = () => {
-		let width = document.getElementById("width").innerText;
-		let bannersLength = document.getElementById("banners").innerText;
-		let styleSheet = document.createElement("style");
-		let keyframes = `
-    @keyframes scroll {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(calc(-${width}px * ${bannersLength}));
-      }
-    }`;
-
-		styleSheet.innerText = keyframes;
-		document.head.appendChild(styleSheet);
-	};
-</script>

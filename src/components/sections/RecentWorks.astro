@@ -1,6 +1,22 @@
 ---
+import Carousel from "@/components/Carousel.astro";
+import { recentWorks } from "@/const/recentWorks";
 ---
 
-<div>
+<section class="p-4 mt-4 rounded-lg bg-primary-200 dark:bg-primary-950 text-center">
+	<h2 class="text-3xl py-2 capitalize">
+		Recent Works
+	</h2>
+	{
+		recentWorks.length === 0 ? (
+			<p class="text-lg text-primary-900 dark:text-primary-100">
+				We are currently working on new projects, come back soon to see them.
+			</p>
+		): (
+		<div class="flex justify-center items-center h-[1200px]">
+			<Carousel banners={recentWorks} width={500} height={800} animationSpeed={5} id="recent-works" repeat={3} />
+		</div>
 
-</div>
+		)
+	}
+</section>
