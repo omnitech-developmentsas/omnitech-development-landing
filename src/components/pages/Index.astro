@@ -5,6 +5,7 @@ interface Props {
 import NavBar from "@/components/NavBar.astro";
 import TeamSection from "@/components/sections/TeamSection.astro";
 import ProviderSection from "@/components/sections/ProviderSection.astro";
+import RecentWorks from "@/components/sections/RecentWorks.astro";
 import { getI18N } from "@/i18n/index";
 import { Image } from "astro:assets";
 
@@ -33,6 +34,7 @@ const i18n = getI18N({ currentLocale: languaje });
 <main class="px-6">
 	<TeamSection />
 	<ProviderSection />
+	<RecentWorks />
 </main>
 <footer class="py-24 text-center">
 	<hr class="border-t-2 border-primary-500 w-1/2 mx-auto my-4" />
