@@ -1,50 +1,50 @@
 ---
 interface Props {
-	languaje: string;
+	language: string;
 }
 import Theme from "@/components/Theme.svelte";
 import { getRelativeLocaleUrl } from "astro:i18n";
 import { getI18N } from "@/i18n/index";
 import { Image } from "astro:assets";
-const { languaje } = Astro.props;
+const { language } = Astro.props;
 const pathName = Astro.url.pathname;
 const currentPath = pathName.split("/")[2];
-const i18n = getI18N({ currentLocale: languaje });
+const i18n = getI18N({ currentLocale: language });
 ---
 
-<div style="position: absolute; top: 25px; right: 25px;">
+<div class="absolute top-6 right-6">
 	<Theme client:only="svelte" />
 </div>
 <nav class="flex items-center w-full p-6 justify-evenly">
 	<div class="w-10 h-10 bg-center bg-cover">
-		<a href={getRelativeLocaleUrl(languaje, '/')}>
+		<a href={getRelativeLocaleUrl(language, '/')}>
 			<Image src="/img/logo.png" alt="Omnitech Development" width="40" height="40" />
 		</a>
 	</div>
 	<ul
 		class="flex items-center justify-between gap-8 p-4 rounded-full w-fit bg-primary-100 dark:bg-primary-950"
 	>
-		<li class="px-4 py-2 rounded-full hover:bg-primary-600 hover:text-white">
-			<a href={getRelativeLocaleUrl(languaje, '/')}
+		<li class="px-4 py-2 rounded-full hover:bg-primary-600 hover:text-white" style=`background-color: ${currentPath === '' ? 'var(--primary-600)' : ''}`>
+			<a href={getRelativeLocaleUrl(language, '/')}
 				>{i18n.landing.header.navbar.menu.home}</a>
 		</li>
-		<li>
-			<a href={getRelativeLocaleUrl(languaje, 'about')}
+		<li class="px-4 py-2 rounded-full hover:bg-primary-600 hover:text-white" style=`background-color: ${currentPath === 'about' ? 'var(--primary-600)' : ''}`>
+			<a href={getRelativeLocaleUrl(language, 'about')}
 			>{i18n.landing.header.navbar.menu.about}</a>
 		</li>
-		<li>
-			<a href={getRelativeLocaleUrl(languaje, 'services')}
+		<li class="px-4 py-2 rounded-full hover:bg-primary-600 hover:text-white" style=`background-color: ${currentPath === 'services' ? 'var(--primary-600)' : ''}`>
+			<a href={getRelativeLocaleUrl(language, 'services')}
 			>{i18n.landing.header.navbar.menu.services}</a>
 		</li>
-		<li>
-			<a href={getRelativeLocaleUrl(languaje, 'projects')}
-			>{i18n.landing.header.navbar.menu.projects}</a>
+		<li class="px-4 py-2 rounded-full hover:bg-primary-600 hover:text-white" style=`background-color: ${currentPath === 'team' ? 'var(--primary-600)' : ''}`>
+			<a href={getRelativeLocaleUrl(language, 'team')}
+			>{i18n.landing.header.navbar.menu.team}</a>
 		</li>
 	</ul>
 	<div class="flex items-center">
 		<a
 			class="px-6 py-3 text-white rounded-full bg-primary-500"
-			href="tel:1234567890"
+			href="tel:3229423051"
 		>
 			{i18n.landing.header.navbar.buttons.contact}
 		</a>

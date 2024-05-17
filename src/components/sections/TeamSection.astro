@@ -1,7 +1,10 @@
 ---
+interface Props {
+	language: string;
+}
 import Tag from "@/components/Tag.astro";
 import Team from "@/components/Team.astro";
-
+const { language } = Astro.props;
 ---
 
 <section class="grid grid-cols-[1fr_3fr] gap-6">
@@ -31,7 +34,7 @@ import Team from "@/components/Team.astro";
 			<Tag label="Robotic" />
 		</div>
 		<div class="flex justify-end w-2/5">
-			<Team />
+			<Team language={language} />
 		</div>
 	</div>
 </section>

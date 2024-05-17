@@ -1,5 +1,5 @@
 {
-  "languaje": "en",
+  "language": "en",
   "landing": {
     "header": {
       "navbar": {
@@ -7,7 +7,8 @@
           "home": "Home",
           "projects": "Projects",
           "about": "About",
-          "services": "Services"
+          "services": "Services",
+          "team": "Team"
         },
         "buttons": {
           "contact": "Contact"
