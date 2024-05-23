@@ -1,0 +1,113 @@
+---
+interface Props {
+	language: string;
+	currentPath: string;
+}
+import { getRelativeLocaleUrl } from "astro:i18n";
+import { getI18N } from "@/i18n/index";
+import Theme from "@/components/Theme.svelte";
+import Close from "@/icons/close.astro";
+const { language, currentPath } = Astro.props;
+const i18n = getI18N({ currentLocale: language });
+---
+
+<ul
+	class="items-center justify-between gap-8 p-4 rounded-full w-fit bg-primary-100 dark:bg-primary-950 hidden lg:flex"
+>
+<a href={getRelativeLocaleUrl(language, "/")}>
+	<li
+		class="px-4 py-2 rounded-full hover:bg-primary-600 hover:text-white"
+		style=`background-color: ${
+			currentPath === "" ? "var(--primary-600)" : ""
+		}`
+	>
+		{i18n.landing.header.navbar.menu.home}
+	</li>
+</a>
+<a href={getRelativeLocaleUrl(language, "about")}>
+	<li
+		class="px-4 py-2 rounded-full hover:bg-primary-600 hover:text-white"
+		style=`background-color: ${currentPath === 'about' ? 'var(--primary-600)' : ''}`
+	>
+		{i18n.landing.header.navbar.menu.about}
+	</li>
+</a>
+<a href={getRelativeLocaleUrl(language, "services")}>
+	<li
+		class="px-4 py-2 rounded-full hover:bg-primary-600 hover:text-white"
+		style=`background-color: ${currentPath === 'services' ? 'var(--primary-600)' : ''}`
+	>
+		{i18n.landing.header.navbar.menu.services}
+	</li>
+</a>
+<a href={getRelativeLocaleUrl(language, "team")}>
+	<li
+		class="px-4 py-2 rounded-full hover:bg-primary-600 hover:text-white"
+		style=`background-color: ${currentPath === 'team' ? 'var(--primary-600)' : ''}`
+	>
+		{i18n.landing.header.navbar.menu.team}
+	</li>
+</a>
+</ul>
+
+<!-- Mobile Navbar -->
+<div
+	class="lg:hidden absolute w-screen h-screen bg-primary-100 dark:bg-primary-950 left-0 top-0 z-50 hidden"
+	id="responsive-navbar"
+>
+	<div class="w-full grid grid-cols-2 p-8 text-3xl">
+		<Theme client:only="svelte" />
+		<button class="flex justify-end" id="close-responsive-navbar">
+			<Close />
+		</button>
+	</div>
+	<ul
+		class="h-screen w-screen flex flex-col gap-3 bg-primary-100 dark:bg-primary-950 p-10 text-center"
+	>
+		<a href={getRelativeLocaleUrl(language, "/")}>
+			<li
+				class="px-4 py-2 rounded-full hover:bg-primary-600 hover:text-white w-full"
+				style=`background-color: ${
+					currentPath === "" ? "var(--primary-600)" : ""
+				}`
+			>
+				{i18n.landing.header.navbar.menu.home}
+			</li>
+		</a>
+		<a href={getRelativeLocaleUrl(language, "about")}>
+			<li
+				class="px-4 py-2 rounded-full hover:bg-primary-600 hover:text-white w-full"
+				style=`background-color: ${currentPath === 'about' ? 'var(--primary-600)' : ''}`
+			>
+				{i18n.landing.header.navbar.menu.about}
+			</li>
+		</a>
+		<a href={getRelativeLocaleUrl(language, "services")}>
+			<li
+				class="px-4 py-2 rounded-full hover:bg-primary-600 hover:text-white w-full"
+				style=`background-color: ${currentPath === 'services' ? 'var(--primary-600)' : ''}`
+			>
+				{i18n.landing.header.navbar.menu.services}
+			</li>
+		</a>
+		<a href={getRelativeLocaleUrl(language, "team")}>
+			<li
+				class="px-4 py-2 rounded-full hover:bg-primary-600 hover:text-white w-full"
+				style=`background-color: ${currentPath === 'team' ? 'var(--primary-600)' : ''}`
+			>
+				{i18n.landing.header.navbar.menu.team}
+			</li>
+		</a>
+	</ul>
+</div>
+
+<script>
+	const closeResponsiveNavbar = document.getElementById("close-responsive-navbar");
+	const responsiveNavbar = document.getElementById("responsive-navbar");
+	if (!closeResponsiveNavbar || !responsiveNavbar) {
+		throw new Error("Element not found");
+	}
+	closeResponsiveNavbar.addEventListener("click", () => {
+		responsiveNavbar.classList.add("hidden");
+	});
+</script>

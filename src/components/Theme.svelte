@@ -26,7 +26,7 @@
 	}
 </script>
 
-<div>
+<div class="w-full flex justify-between items-center">
 	<button on:click={handleClickTheme}>
 		{theme === "light" ? "🌙" : "🌞"}
 	</button>
