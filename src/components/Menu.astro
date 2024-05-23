@@ -1,0 +1,94 @@
+---
+interface Props {
+	language: string;
+	currentPath: string;
+}
+import { getI18N } from "@/i18n/index";
+import Theme from "@/components/Theme.svelte";
+import Close from "@/icons/close.astro";
+import MenuItem from "./MenuItem.astro";
+const { language, currentPath } = Astro.props;
+const i18n = getI18N({ currentLocale: language });
+---
+
+<ul
+	class="items-center justify-between gap-8 p-4 rounded-full w-fit bg-primary-100 dark:bg-primary-950 hidden lg:flex"
+>
+<MenuItem
+	language={language}
+	currentPath={currentPath}
+	path=""
+	label={i18n.landing.header.navbar.menu.home}
+/>
+<MenuItem
+	language={language}
+	currentPath={currentPath}
+	path="about"
+	label={i18n.landing.header.navbar.menu.about}
+/>
+<MenuItem
+	language={language}
+	currentPath={currentPath}
+	path="services"
+	label={i18n.landing.header.navbar.menu.services}
+/>
+<MenuItem
+	language={language}
+	currentPath={currentPath}
+	path="team"
+	label={i18n.landing.header.navbar.menu.team}
+/>
+</ul>
+
+<!-- Mobile Navbar -->
+<div
+	class="lg:hidden absolute w-screen h-screen bg-primary-100 dark:bg-primary-950 left-0 top-0 z-50 hidden"
+	id="responsive-navbar"
+>
+	<div class="w-full grid grid-cols-2 p-8 text-3xl">
+		<Theme client:only="svelte" />
+		<button class="flex justify-end" id="close-responsive-navbar">
+			<Close />
+		</button>
+	</div>
+	<hr class="border-t-2 border-primary-500 w-1/2 mx-auto my-4" />
+	<ul
+		class="h-screen w-screen flex flex-col gap-3 bg-primary-100 dark:bg-primary-950 p-10 text-center"
+	>
+		<MenuItem
+			language={language}
+			currentPath={currentPath}
+			path=""
+			label={i18n.landing.header.navbar.menu.home}
+		/>
+		<MenuItem
+			language={language}
+			currentPath={currentPath}
+			path="about"
+			label={i18n.landing.header.navbar.menu.about}
+		/>
+		<MenuItem
+			language={language}
+			currentPath={currentPath}
+			path="services"
+			label={i18n.landing.header.navbar.menu.services}
+		/>
+		<MenuItem
+			language={language}
+			currentPath={currentPath}
+			path="team"
+			label={i18n.landing.header.navbar.menu.team}
+		/>
+	</ul>
+</div>
+
+<script>
+	const closeResponsiveNavbar = document.getElementById("close-responsive-navbar");
+	const responsiveNavbar = document.getElementById("responsive-navbar");
+	if (!closeResponsiveNavbar || !responsiveNavbar) {
+		throw new Error("Element not found");
+	}
+	closeResponsiveNavbar.addEventListener("click", () => {
+		responsiveNavbar.classList.add("hidden");
+	});
+</script>
