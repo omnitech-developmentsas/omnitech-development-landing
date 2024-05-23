@@ -1,0 +1,19 @@
+---
+interface Props {
+  language: string;
+  currentPath: string;
+  path: string;
+  label: string;
+}
+import { getRelativeLocaleUrl } from "astro:i18n";
+const { language, currentPath, path, label } = Astro.props;
+---
+
+<a href={getRelativeLocaleUrl(language, path)}>
+  <li
+    class="px-4 py-2 rounded-full hover:bg-primary-600 hover:text-white w-full"
+    style=`background-color: ${currentPath === path ? 'var(--primary-600)' : ''}`
+  >
+    {label}
+  </li>
+</a>
