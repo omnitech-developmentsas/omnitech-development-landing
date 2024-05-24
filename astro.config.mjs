@@ -6,6 +6,7 @@ import svelte from "@astrojs/svelte";
 
 // https://astro.build/config
 export default defineConfig({
+	site: 'https://omnitechdevelopment.com/',
   integrations: [tailwind(), sitemap(), svelte()],
 	i18n: {
     defaultLocale: "en",
