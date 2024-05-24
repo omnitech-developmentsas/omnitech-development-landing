@@ -1,8 +1,9 @@
 ---
+import { LANG } from "@/i18n";
 import Layout from "@/layouts/Layout.astro";
 import TeamPage from "@/pages/Team.astro";
 ---
 
-<Layout title="Team"  language="en">
-	<TeamPage language="en" />
+<Layout title="Team"  language={LANG.ENGLISH}>
+	<TeamPage language={LANG.ENGLISH} />
 </Layout>

@@ -1,8 +1,9 @@
 ---
+import { LANG } from "@/i18n";
 import Layout from "@/layouts/Layout.astro";
 import IndexPage from "@/pages/Index.astro";
 ---
 
-<Layout title="Inicio" language="es">
-	<IndexPage language="es" />
+<Layout title="Inicio" language={LANG.SPANISH}>
+	<IndexPage language={LANG.SPANISH} />
 </Layout>
