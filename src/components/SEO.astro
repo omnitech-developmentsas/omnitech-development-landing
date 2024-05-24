@@ -1,0 +1,81 @@
+---
+import jost from "@fontsource-variable/jost/files/jost-latin-wght-normal.woff2"
+
+// import RichResults from "@/components/RichResults.astro"
+import type { Preload } from "@/types/Preload"
+
+interface Props {
+	title: string
+	description: string
+	preload?: Array<Preload>
+	canonical?: string
+	image: string
+	language?: string
+}
+
+const {
+	title,
+	description,
+	preload,
+	canonical,
+	image,
+	language = "en",
+} = Astro.props as Props
+
+const determineCanonicalURL = () => {
+	if (Astro.url.host.includes("localhost")) return "http://localhost:4321"
+	return canonical || Astro.url.pathname
+}
+
+const canonicalURL = new URL(determineCanonicalURL(), Astro.site)
+---
+
+<title>Omintech Development - {title}</title>
+
+<meta charset="UTF-8" />
+<meta name="description" content={description} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+<meta name="generator" content={Astro.generator} />
+
+
+<link rel="preconnect" href="https://dns.omnitechdevelopment.com" />
+<link rel="preload" href={jost} as="font" type="font/woff2" crossorigin />
+
+{
+	preload?.map(({ href, as, type, rel = "preload", crossorigin }) => (
+		<link {rel} {href} {as} {type} {crossorigin} />
+	))
+}
+
+<link rel="canonical" href={canonicalURL} />
+<meta name="viewport" content="width=device-width" />
+
+<meta name="keywords" content="omnitech, development, omnitech development, omnitechd, omnitech.dev, omnitechdevelopment.com, omnitech.dev, omnitechd.com, omnitech development, omnitechd, omnitech.dev, omnitechdevelopment.com, omnitech.dev, omnitechd.com, software, development, software development, web, app, web app, web development, app development, web app development, app development, mobile" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@OmnitechD" />
+<meta name="twitter:creator" content="@OmnitechD" />
+<meta name="twitter:title" content={`Omintech Development - ${title}`}	/>
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={new URL(image, Astro.url)} />
+
+<meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:title" content={`Omintech Development - ${title}`} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={Astro.url} />
+<meta property="og:site_name" content="Omnitech Development" />
+<meta property="og:type" content="website" />
+<meta property="og:locale" content=`${language}_${language.toUpperCase()}` />
+
+<meta name="robots" content="index, follow" />
+<meta name="googlebot" content="index, follow" />
+
+<link rel="icon" type="image/x-icon" href="/img/logo.png" />
+<!-- <link rel="apple-touch-icon" href="/img/icons/apple-touch-icon.png" /> -->
+
+<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<meta name="msapplication-config" content="/browserconfig.xml" /> -->
+
+<!-- <script is:inline src="/registerSW.js"></script>
+<link rel="manifest" href="/manifest.webmanifest" /> -->
+<!-- <RichResults /> -->
