@@ -1,7 +1,8 @@
 ---
-
+import TitleOne from "@/components/typographies/TitleOne.astro";
+import TitleTwo from "@/components/typographies/TitleTwo.astro";
+import Paragraph from "@/components/typographies/Paragraph.astro";
 import Main from '../sections/Main.astro';
-import H1 from '../typographies/h1.astro';
 
 interface Props {
 	language: string;
@@ -11,44 +12,20 @@ interface Props {
 <Main>
 	<div class="container mx-auto">
 		<div class="flex flex-col items-center justify-center">
-			<H1 label='About Us' />
-			
-			<p>
-				OmniTech Development S.A.S is a company that offers its clients
-				technological development services and products, including websites,
-				mobile applications, software development, and IoT development.
-			</p>
-			<p>
-				We have highly qualified personnel with the necessary skills for the
-				creation of each of our products and services. Additionally, we are a
-				company that creates value by providing accurate and highly efficient
-				products and services to various sectors, meeting all our clients'
-				needs.
-			</p>
+			<TitleOne label='About Us' />
+			<Paragraph text="OmniTech Development S.A.S is a company that offers its clients technological development services and products, including websites, mobile applications, software development, and IoT development." />
+			<Paragraph text="We have highly qualified personnel with the necessary skills for the creation of each of our products and services. Additionally, we are a company that creates value by providing accurate and highly efficient products and services to various sectors, meeting all our clients' needs." />
 		</div>
 		<div class="flex flex-col items-center justify-center mt-10">
-			<h2 class="text-2xl font-bold text-center text-primary-50">
-				Our Mission
-			</h2>
-			<p>
-				We demonstrate to our clients a high level of quality and good service
-				by implementing comprehensive marketing strategies to position the brand
-				in the consumer's mind, based on fundamental principles such as honesty,
-				respect, and commitment.
-			</p>
+			<TitleTwo label='Our Mission' />
+			<Paragraph text="To provide our clients with high-quality products and services that meet their needs and exceed their expectations. We are committed to the continuous development of our capabilities and knowledge to offer innovative solutions that add value to our clients' businesses." />
 		</div>
 		<div class="flex flex-col items-center justify-center mt-10">
-			<h2 class="text-2xl font-bold text-center text-primary-50">Our Vision</h2>
-			<p>
-				To be a nationally recognized company for the quality of our services
-				and products. Additionally, to innovate in the presentation of services
-				and in each developed product, leveraging a broad understanding of the
-				business environment and applying it in the development of our products
-				and services.
-			</p>
+			<TitleTwo label='Our Vision' />
+			<Paragraph text="To be a nationally recognized company for the quality of our services and products. Additionally, to innovate in the presentation of services and in each developed product, leveraging a broad understanding of the business environment and applying it in the development of our products and services." />
 		</div>
 		<div class="flex flex-col items-center justify-center mt-10">
-			<h2 class="text-2xl font-bold text-center text-primary-50">Our Values</h2>
+			<TitleTwo label='Our Values' />
 			<ul>
 				<li>
 					Quality: We strive to provide high-quality products and services that
