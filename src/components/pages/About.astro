@@ -1,26 +1,76 @@
 ---
+
+import Main from '../sections/Main.astro';
+import H1 from '../typographies/h1.astro';
+
 interface Props {
 	language: string;
 }
 ---
 
-<main>
+<Main>
 	<div class="container mx-auto">
 		<div class="flex flex-col items-center justify-center">
-			<h1 class="text-4xl font-bold text-center text-gray-800">About Us</h1>
-			<p class="text-center text-gray-600">We are a company that specializes in software development</p>
+			<H1 label='About Us' />
+			
+			<p>
+				OmniTech Development S.A.S is a company that offers its clients
+				technological development services and products, including websites,
+				mobile applications, software development, and IoT development.
+			</p>
+			<p>
+				We have highly qualified personnel with the necessary skills for the
+				creation of each of our products and services. Additionally, we are a
+				company that creates value by providing accurate and highly efficient
+				products and services to various sectors, meeting all our clients'
+				needs.
+			</p>
 		</div>
 		<div class="flex flex-col items-center justify-center mt-10">
-			<h2 class="text-2xl font-bold text-center text-gray-800">Our Mission</h2>
-			<p class="text-center text-gray-600">Our mission is to provide the best software development services to our clients</p>
+			<h2 class="text-2xl font-bold text-center text-primary-50">
+				Our Mission
+			</h2>
+			<p>
+				We demonstrate to our clients a high level of quality and good service
+				by implementing comprehensive marketing strategies to position the brand
+				in the consumer's mind, based on fundamental principles such as honesty,
+				respect, and commitment.
+			</p>
 		</div>
 		<div class="flex flex-col items-center justify-center mt-10">
-			<h2 class="text-2xl font-bold text-center text-gray-800">Our Vision</h2>
-			<p class="text-center text-gray-600">Our vision is to become the best software development company in the world</p>
+			<h2 class="text-2xl font-bold text-center text-primary-50">Our Vision</h2>
+			<p>
+				To be a nationally recognized company for the quality of our services
+				and products. Additionally, to innovate in the presentation of services
+				and in each developed product, leveraging a broad understanding of the
+				business environment and applying it in the development of our products
+				and services.
+			</p>
 		</div>
 		<div class="flex flex-col items-center justify-center mt-10">
-			<h2 class="text-2xl font-bold text-center text-gray-800">Our Values</h2>
-			<p class="text-center text-gray-600">Our values are quality, innovation, and customer satisfaction</p>
+			<h2 class="text-2xl font-bold text-center text-primary-50">Our Values</h2>
+			<ul>
+				<li>
+					Quality: We strive to provide high-quality products and services that
+					exceed our clients' expectations.
+				</li>
+				<li>
+					Innovation: We constantly seek to innovate in the presentation of our
+					services and in the development of our products.
+				</li>
+				<li>
+					Honesty: We act with integrity and transparency in all our actions and
+					decisions.
+				</li>
+				<li>
+					Respect: We foster an environment of mutual respect among our staff,
+					clients, and partners.
+				</li>
+				<li>
+					Commitment: We are committed to the satisfaction of our clients and
+					the continuous development of our capabilities and knowledge.
+				</li>
+			</ul>
 		</div>
 	</div>
-</main>
+</Main>
