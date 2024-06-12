@@ -1,0 +1,10 @@
+---
+import Typography from '@/components/Typography.astro';
+
+interface Props {
+	text: string;
+}
+const { text } = Astro.props;
+---
+
+<Typography type="p" text={text} />
