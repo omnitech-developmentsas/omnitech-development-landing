@@ -1,26 +1,53 @@
 ---
+import TitleOne from "@/components/typographies/TitleOne.astro";
+import TitleTwo from "@/components/typographies/TitleTwo.astro";
+import Paragraph from "@/components/typographies/Paragraph.astro";
+import Main from '../sections/Main.astro';
+
 interface Props {
 	language: string;
 }
 ---
 
-<main>
+<Main>
 	<div class="container mx-auto">
 		<div class="flex flex-col items-center justify-center">
-			<h1 class="text-4xl font-bold text-center text-gray-800">About Us</h1>
-			<p class="text-center text-gray-600">We are a company that specializes in software development</p>
+			<TitleOne label='About Us' />
+			<Paragraph text="OmniTech Development S.A.S is a company that offers its clients technological development services and products, including websites, mobile applications, software development, and IoT development." />
+			<Paragraph text="We have highly qualified personnel with the necessary skills for the creation of each of our products and services. Additionally, we are a company that creates value by providing accurate and highly efficient products and services to various sectors, meeting all our clients' needs." />
 		</div>
 		<div class="flex flex-col items-center justify-center mt-10">
-			<h2 class="text-2xl font-bold text-center text-gray-800">Our Mission</h2>
-			<p class="text-center text-gray-600">Our mission is to provide the best software development services to our clients</p>
+			<TitleTwo label='Our Mission' />
+			<Paragraph text="To provide our clients with high-quality products and services that meet their needs and exceed their expectations. We are committed to the continuous development of our capabilities and knowledge to offer innovative solutions that add value to our clients' businesses." />
 		</div>
 		<div class="flex flex-col items-center justify-center mt-10">
-			<h2 class="text-2xl font-bold text-center text-gray-800">Our Vision</h2>
-			<p class="text-center text-gray-600">Our vision is to become the best software development company in the world</p>
+			<TitleTwo label='Our Vision' />
+			<Paragraph text="To be a nationally recognized company for the quality of our services and products. Additionally, to innovate in the presentation of services and in each developed product, leveraging a broad understanding of the business environment and applying it in the development of our products and services." />
 		</div>
 		<div class="flex flex-col items-center justify-center mt-10">
-			<h2 class="text-2xl font-bold text-center text-gray-800">Our Values</h2>
-			<p class="text-center text-gray-600">Our values are quality, innovation, and customer satisfaction</p>
+			<TitleTwo label='Our Values' />
+			<ul>
+				<li>
+					Quality: We strive to provide high-quality products and services that
+					exceed our clients' expectations.
+				</li>
+				<li>
+					Innovation: We constantly seek to innovate in the presentation of our
+					services and in the development of our products.
+				</li>
+				<li>
+					Honesty: We act with integrity and transparency in all our actions and
+					decisions.
+				</li>
+				<li>
+					Respect: We foster an environment of mutual respect among our staff,
+					clients, and partners.
+				</li>
+				<li>
+					Commitment: We are committed to the satisfaction of our clients and
+					the continuous development of our capabilities and knowledge.
+				</li>
+			</ul>
 		</div>
 	</div>
-</main>
+</Main>

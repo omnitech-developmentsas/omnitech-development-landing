@@ -1,0 +1,10 @@
+---
+import Typography from '@/components/Typography.astro';
+
+interface Props {
+	label: string;
+}
+const { label } = Astro.props;
+---
+
+<Typography type="h2" text={label} />
